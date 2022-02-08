@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Client
+Bundle-SymbolicName: com.asml.innovationteam.m2t.tracing.client
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ASML
+Automatic-Module-Name: com.asml.innovationteam.m2t.tracing.client
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.asml.innovationteam.m2t.tracing;bundle-version="1.0.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
