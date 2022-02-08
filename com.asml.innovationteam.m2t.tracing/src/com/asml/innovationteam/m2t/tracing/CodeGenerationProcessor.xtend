@@ -29,21 +29,4 @@ class CodeGenerationProcessor extends AbstractMethodProcessor {
 		System.err.println("doTransform")
 		super.doTransform(annotatedMethod, context)
 	}
-
-	def dispatch Iterable<Expression> findReturnExpressions(Expression expression) {
-		System.err.println("findReturnExpressions")
-		#[]
-	}
-
-	def dispatch Iterable<Expression> findReturnExpressions(XBlockExpression ex) {
-		System.err.println("findReturnExpressions(XBlockExpression)")
-
-		#[]
-	}
-
-	override doGenerateCode(MethodDeclaration annotatedMethod, extension CodeGenerationContext context) {
-		System.err.println("doGenerateCode")
-		super.doGenerateCode(annotatedMethod, context)
-	}
-
 }
