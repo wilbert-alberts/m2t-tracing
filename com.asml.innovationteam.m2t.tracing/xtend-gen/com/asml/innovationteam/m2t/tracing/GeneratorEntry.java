@@ -5,7 +5,7 @@ import java.lang.annotation.Target;
 import org.eclipse.xtend.lib.macro.Active;
 
 @Target(ElementType.METHOD)
-@Active(CodeGenerationProcessor.class)
+@Active(EntryProcessor.class)
 @SuppressWarnings("all")
-public @interface CodeGeneration {
+public @interface GeneratorEntry {
 }

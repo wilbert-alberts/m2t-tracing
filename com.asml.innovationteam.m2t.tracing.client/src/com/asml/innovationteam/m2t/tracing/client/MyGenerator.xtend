@@ -1,9 +1,11 @@
 package com.asml.innovationteam.m2t.tracing.client
 
-import com.asml.innovationteam.m2t.tracing.CodeGeneration
+import com.asml.innovationteam.m2t.tracing.GeneratedFragment
+import com.asml.innovationteam.m2t.tracing.GeneratorEntry
 
 class MyGenerator {
 
+	@GeneratorEntry
 	def String generateMain() {
 		val result = '''
 			void «generateFunctionName(42)» {
@@ -13,15 +15,15 @@ class MyGenerator {
 		return result
 	}
 
-	@CodeGeneration
+	@GeneratedFragment
 	def String generateFunctionName(int i) {
 		'''Foo_«i»'''
 	}
 
-	@CodeGeneration
+	@GeneratedFragment
 	def String generateBody() {
 		'''
-			// This is Foo's body
+			// This is «generateFunctionName(43)»'s body
 			skip();
 			return;
 		'''

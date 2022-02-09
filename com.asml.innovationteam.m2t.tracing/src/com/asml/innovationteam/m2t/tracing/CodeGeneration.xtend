@@ -4,7 +4,11 @@ import org.eclipse.xtend.lib.macro.Active
 import java.lang.annotation.Target
 
 @Target(METHOD)
-@Active(CodeGenerationProcessor)
-annotation CodeGeneration {
-	
+@Active(FragmentProcessor)
+annotation GeneratedFragment {	
+}
+
+@Target(METHOD)
+@Active(EntryProcessor)
+annotation GeneratorEntry {	
 }

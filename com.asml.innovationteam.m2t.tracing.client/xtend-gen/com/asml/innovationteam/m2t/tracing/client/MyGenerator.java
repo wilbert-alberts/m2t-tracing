@@ -1,11 +1,13 @@
 package com.asml.innovationteam.m2t.tracing.client;
 
-import com.asml.innovationteam.m2t.tracing.CodeGeneration;
+import com.asml.innovationteam.m2t.tracing.GeneratedFragment;
+import com.asml.innovationteam.m2t.tracing.GeneratorEntry;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class MyGenerator {
-  public String generateMain() {
+  @GeneratorEntry
+  public String _cg_generateMain() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("void ");
     String _generateFunctionName = this.generateFunctionName(42);
@@ -22,7 +24,7 @@ public class MyGenerator {
     return result;
   }
   
-  @CodeGeneration
+  @GeneratedFragment
   public String _cg_generateFunctionName(final int i) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Foo_");
@@ -30,11 +32,14 @@ public class MyGenerator {
     return _builder.toString();
   }
   
-  @CodeGeneration
+  @GeneratedFragment
   public String _cg_generateBody() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// This is Foo\'s body");
-    _builder.newLine();
+    _builder.append("// This is ");
+    String _generateFunctionName = this.generateFunctionName(43);
+    _builder.append(_generateFunctionName);
+    _builder.append("\'s body");
+    _builder.newLineIfNotEmpty();
     _builder.append("skip();");
     _builder.newLine();
     _builder.append("return;");
@@ -42,15 +47,26 @@ public class MyGenerator {
     return _builder.toString();
   }
   
+  public String generateMain() {
+    // This is the before part
+    com.asml.innovationteam.m2t.tracing.MetaDataStack.getInstance().clear();
+    java.lang.String result = _cg_generateMain();
+    // This is the after part
+    com.asml.innovationteam.m2t.tracing.MetaDataStack.getInstance().save();
+    return result;
+  }
+  
   public String generateFunctionName(final int i) {
     // This is the wrapper around _cg_generateFunctionName
+    com.asml.innovationteam.m2t.tracing.MetaData md = com.asml.innovationteam.m2t.tracing.MetaDataStack.getInstance().push("com.asml.innovationteam.m2t.tracing.client.MyGenerator.generateFunctionName");
     String orgResult = _cg_generateFunctionName(i); 
-    return "[meta[" + orgResult + "]meta]";
+    return "["+md.getId()+"[" + orgResult + "]"+md.getId()+"]";
   }
   
   public String generateBody() {
     // This is the wrapper around _cg_generateBody
+    com.asml.innovationteam.m2t.tracing.MetaData md = com.asml.innovationteam.m2t.tracing.MetaDataStack.getInstance().push("com.asml.innovationteam.m2t.tracing.client.MyGenerator.generateBody");
     String orgResult = _cg_generateBody(); 
-    return "[meta[" + orgResult + "]meta]";
+    return "["+md.getId()+"[" + orgResult + "]"+md.getId()+"]";
   }
 }
