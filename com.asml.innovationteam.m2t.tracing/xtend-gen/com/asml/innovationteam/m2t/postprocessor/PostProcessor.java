@@ -248,6 +248,7 @@ public class PostProcessor {
     final PostProcessor pp = new PostProcessor();
     final String cleanString = pp.extractEssentialText(testString);
     System.out.println(cleanString);
+    System.err.println("Metadata stack to position data:\n");
     String _metaAsString = pp.metaAsString();
     String _plus = (_metaAsString + "\n");
     System.err.println(_plus);

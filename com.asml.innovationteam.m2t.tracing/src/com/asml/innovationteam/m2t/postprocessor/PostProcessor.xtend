@@ -139,6 +139,7 @@ class PostProcessor {
 		val pp = new PostProcessor
 		val cleanString = pp.extractEssentialText(testString)
 		System.out.println(cleanString)
+		System.err.println("Metadata stack to position data:\n")
 		System.err.println(pp.metaAsString + "\n")
 		System.err.println(testString)
 	}
